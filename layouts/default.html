@@ -1,29 +1,28 @@
-<!DOCTYPE HTML>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>A Brand New nanoc Site - <%= @item[:title] %></title>
-    <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+doctype html
+html
+  head
+    meta charset="utf-8"
+    title = "#{@item[:title]} - George Pittarelli"
+    link rel="stylesheet" type="text/css" href="/style.css" media="screen"
 
-    <!-- you don't need to keep this, but it's cool for stats! -->
-    <meta name="generator" content="nanoc <%= Nanoc::VERSION %>"> 
-  </head>
-  <body>
-    <div id="main">
-      <%= yield %>
-    </div>
-    <div id="sidebar">
-      <h2>Documentation</h2>
-      <ul>
-        <li><a href="http://nanoc.stoneship.org/docs/">Documentation</a></li>
-        <li><a href="http://nanoc.stoneship.org/docs/3-getting-started/">Getting Started</a></li>
-      </ul>
-      <h2>Community</h2>
-      <ul>
-        <li><a href="http://groups.google.com/group/nanoc/">Discussion Group</a></li>
-        <li><a href="irc://chat.freenode.net/#nanoc">IRC Channel</a></li>
-        <li><a href="http://projects.stoneship.org/trac/nanoc/">Wiki</a></li>
-      </ul>
-    </div>
-  </body>
-</html>
+    meta name="generator" content="nanoc #{Nanoc::VERSION}"
+
+    script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"
+    script type="text/javascript" src="scripts/scribble.js"
+
+  body
+    header
+      h1 George Pittarelli
+
+    canvas#scribble
+
+    div#content
+      div#main == yield
+      div#sidebar
+      h3 Programmer<br />Web Developer<br />Student
+      ul
+        li: a href="/" About
+        li: a href="/" Projects
+        li: a href="/" Contact
+
+    footer

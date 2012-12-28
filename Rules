@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
 
 # A few helpful tips about the Rules file:
 #
@@ -13,21 +14,32 @@
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
-compile '/stylesheet/' do
-  # don’t filter or layout
+# Parse stylesheets through less, compress then with
+compile '/stylesheets/*/' do
+  filter :less
+  filter :import_css
+  filter :rainpress
+end
+
+route '/stylesheets/*/' do
+  '/style.css'
+end
+
+compile '/scripts/*/' do
+  filter :coffeescript
+end
+
+route '/scripts/*/' do
+  item.identifier.chop + '.js'
 end
 
 compile '*' do
   if item.binary?
     # don’t filter binary items
   else
-    filter :erb
+    filter :kramdown
     layout 'default'
   end
-end
-
-route '/stylesheet/' do
-  '/style.css'
 end
 
 route '*' do
@@ -40,4 +52,4 @@ route '*' do
   end
 end
 
-layout '*', :erb
+layout '*', :slim
