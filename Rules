@@ -17,7 +17,6 @@
 # Parse stylesheets through less, compress then with
 compile '/stylesheets/*/' do
   filter :less
-  filter :import_css
   filter :rainpress
 end
 
