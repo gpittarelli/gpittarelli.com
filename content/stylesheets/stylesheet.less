@@ -1,17 +1,23 @@
-@import url("reset.less")
+@import "reset.less";
 
-@bg-color: #A1A5A8;
+@import url(http://fonts.googleapis.com/css?family=Montserrat+Subrayada);
+@import url(http://fonts.googleapis.com/css?family=Oxygen:700);
+@import url(http://fonts.googleapis.com/css?family=Monda:700);
+
+@bg-color: #ddd;
+@sidebar-width: 265px;
 
 * {
-  margin: 0;
-  padding: 0;
+  font-family: Verdana, Arial, sans-serif;
+}
 
-  font-family: Georgia, Palatino, Times, 'Times New Roman', sans-serif;
+html {
+  height: 100%;
 }
 
 body {
-/*  background: url('/images/top.png') no-repeat @bg-color; */
-    background: url('/images/floated_layer_copy.png');
+  height: 100%;
+  background: @bg-color;
 }
 
 a {
@@ -24,29 +30,58 @@ a {
   }
 }
 
-canvas#scribble {
-  position: absolute;
-  width: 100%;
-  right: 0;
-  top: 0;
-  height: 100%;
-}
-
 header {
-  background: url('/images/top_repeat.png') repeat-x @bg-color;
-  height: 94px;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  box-sizing: border-box;
+
+  background: url('/images/pattern.png') repeat;
+  height: 100%;
+  width: @sidebar-width;
+  float: left;
+  box-shadow: -13px 0 10px -10px black inset;
+
+  padding: 20px 0 0 20px;
+
+  h1 {
+    font-family: 'Monda';
+    font-size: 40px;
+    font-weight: normal;
+
+    line-height: 40px;
+
+    letter-spacing: -1px;
+    color: white;
+  }
+
+  p {
+    color: #ccc;
+    margin-top: 10px;
+  }
+
+  ul {
+    margin-top: 20px;
+
+    li {
+      margin-top: 12px;
+    }
+  }
 }
 
 footer {
-/*  background: url('/images/bottom.png') no-repeat @bg-color;
-    height: 292px; */
+
+
 }
 
 #content {
-/*  background: url('/images/repeat_layer.png') no-repeat @bg-color; */
 }
 
 #main {
+  padding: 15px 0 0 (@sidebar-width + 15);
+  max-width: 600px;
+
   h1 {
     font-size: 40px;
     font-weight: normal;
@@ -83,11 +118,6 @@ footer {
   border-right: 1px solid #ccc;
 
   text-align: right;
-
-  h1 {
-    font-size: 12px;
-    font-family: Calibri;
-  }
 
   h2 {
     text-transform: uppercase;
