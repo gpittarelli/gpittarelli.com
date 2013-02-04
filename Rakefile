@@ -7,3 +7,7 @@ task :checklink do
 		system 'checklink -q -b -s --hide-same-realm ' + html
 	end
 end
+
+task :deploy do
+  system 'sitecopy --update zensix'
+end
