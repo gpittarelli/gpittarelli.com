@@ -1,0 +1,54 @@
+doctype html
+/[if lt IE 7]
+  | <html class="ie ie6 lt-ie9 lt-ie8 lt-ie7">
+/[if IE 7]
+  | <html class="ie ie7 lt-ie9 lt-ie8">
+/[if IE 8]
+  | <html class="ie ie8 lt-ie9">
+/[if IE 9]
+  | <html class="ie ie9">
+| <!--[if (gte IE 9)|!(IE)]<!-->
+html
+  | <!--<![endif]-->
+  head
+    meta charset="utf-8"
+    title = "#{@item[:title]} - George Pittarelli"
+    link rel="stylesheet" type="text/css" href="/style.css" media="screen"
+
+    meta name="generator" content="nanoc #{Nanoc::VERSION}"
+
+    script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
+
+  body
+    header
+      h1 George<br />Pittarelli
+      p
+        | Programmer with a passion for the web, currently studying at the University of Maryland.
+
+      ul#places
+        li: a(href="http://stackoverflow.com/users/922613/george-p"
+              class="site_icon" id="icon_so")
+        li: a(href="https://github.com/gpittarelli"
+              class="site_icon" id="icon_github")
+
+      div class="clear"
+
+      nav
+        ul
+          li: a href="/" Home
+          li
+            a href="/" Projects
+            ul
+              li: a href="/" DIY Fan controller
+              li: a href="/" This site
+          li: a href="/" Contact
+
+    div#main
+      == yield
+
+      / push the footer down
+      div#push
+
+
+    footer
+      | &copy; George Pittarelli 2013
