@@ -3,3 +3,5 @@
 .emacs.desktop
 output
 tmp
+.sitecopyrc
+crash.log
