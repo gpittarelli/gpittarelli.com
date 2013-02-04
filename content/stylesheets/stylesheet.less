@@ -1,14 +1,17 @@
 @import "reset.less";
 
-@import url(http://fonts.googleapis.com/css?family=Montserrat+Subrayada);
-@import url(http://fonts.googleapis.com/css?family=Oxygen:700);
 @import url(http://fonts.googleapis.com/css?family=Monda:700);
 
 @bg-color: #ddd;
 @sidebar-width: 265px;
+@footer-height: 13px;
 
 * {
   font-family: Verdana, Arial, sans-serif;
+}
+
+.clear {
+  clear: both;
 }
 
 html {
@@ -23,10 +26,11 @@ body {
 a {
   text-decoration: none;
   &:link, &:visited {
-    color: #f30;
+    color: #229;
   }
   &:hover {
-    color: #f90;
+    color: black;
+    text-decoration: underline;
   }
 }
 
@@ -59,10 +63,51 @@ header {
   p {
     color: #ccc;
     margin-top: 10px;
+    max-width: 90%;
   }
 
-  ul {
-    margin-top: 20px;
+  a.site_icon {
+    background: url(images/icons.png);
+    width: 24px;
+    height: 24px;
+
+    margin: .5em .5em 0 0;
+    border: 0;
+    display: block;
+    float: left;
+
+    opacity: .3;
+    &:hover {
+      opacity: 1.0;
+    }
+  }
+
+/* Currently unused
+  a#icon_so {
+  } */
+
+  a#icon_github {
+    background-position-x: 24px;
+  }
+
+
+  nav > ul {
+    margin-top: .5em;
+
+    li > a {
+      color: white;
+
+      &:link, &:visited {
+        color: white;
+      }
+      &:hover, &:active {
+        color: #ccc;
+      }
+    }
+
+    ul {
+      margin-left: 20px;
+    }
 
     li {
       margin-top: 12px;
@@ -71,24 +116,59 @@ header {
 }
 
 footer {
-
-
+  height: @footer-height;
+  font-size: 11px;
 }
 
-#content {
+div#push {
+  /* Some extra spacing between the footer and content */
+  height: @footer-height + 2px;
+}
+
+footer, #main {
+  padding-left: (@sidebar-width + 15);
 }
 
 #main {
-  padding: 15px 0 0 (@sidebar-width + 15);
-  max-width: 600px;
+  box-sizing: border-box;
+  padding-top: 15px;
+  margin-bottom: -@footer-height;
+  max-width: (650 + @sidebar-width + 15);
+
+  min-height: 100%;
+  height: auto;
 
   h1 {
     font-size: 40px;
     font-weight: normal;
-
     line-height: 40px;
-
     letter-spacing: -1px;
+
+    a {
+      color: black;
+      &:link, &:visited {
+        color: black;
+      }
+      &:hover {
+        color: #229;
+        text-decoration: none;
+      }
+    }
+  }
+
+  div#work-in-progress {
+    background-color: rgba(200,200,0,0.6);
+    border: 2px #ff0 solid;
+    padding: 5px 0 5px 45px;
+    margin-top: 10px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p#date {
+    margin: 0;
   }
 
   p {
@@ -108,33 +188,4 @@ footer {
 
     line-height: 20px;
   }
-}
-
-#sidebar {
-  width: 200px;
-
-  padding: 20px 20px 0 0;
-
-  border-right: 1px solid #ccc;
-
-  text-align: right;
-
-  h2 {
-    text-transform: uppercase;
-    font-size: 13px;
-    color: #333;
-    letter-spacing: 1px;
-    line-height: 20px;
-  }
-
-  ul {
-    list-style-type: none;
-    margin: 20px 0;
-  }
-
-  li {
-    font-size: 14px;
-    line-height: 20px;
-  }
-
 }
