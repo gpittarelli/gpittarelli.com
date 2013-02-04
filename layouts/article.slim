@@ -1,0 +1,16 @@
+h1
+  a href=item.path
+    = item[:title]
+
+p#date
+  | Posted on&nbsp;
+  time datetime=item[:created_at].strftime("%Y-%m-%d")
+    = item[:created_at].strftime("%B %d, %Y")
+  - if item[:tags].include?('work-in-progress')
+    div#work-in-progress
+      img src=""
+      span
+        | This project is still a work in progress! Things on this page
+        |  may change without warning (though I'll try not to remove anything).
+
+article== yield
