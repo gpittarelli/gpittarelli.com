@@ -1,0 +1,8 @@
+---
+title: Home
+---
+
+- for article in sorted_articles
+  == render 'article', { "item" => article } do
+    == article.compiled_content
+end
